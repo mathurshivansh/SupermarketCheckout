@@ -16,50 +16,33 @@ namespace SupermarketCheckout
         {
             switch (item)
             {
+
                 case "A":
-                    totalPrice = totalPrice + 50;
+                    totalPrice += 50;
                     itemCountA++;
                     break;
                 case "B":
-                    totalPrice = totalPrice + 30;
+                    totalPrice += 30;
                     itemCountB++;
                     break;
                 case "C":
-                    totalPrice = totalPrice + 20;
+                    totalPrice += 20;
                     itemCountC++;
                     break;
                 case "D":
-                    totalPrice = totalPrice + 15;
+                    totalPrice += 15;
                     itemCountD++;
                     break;
+
             }
         }
         public int GetTotalPrice()
         {
             int total = totalPrice;
-            total = total - (itemCountA / 3) * 20;
-
-            total = total - (itemCountB / 2) * 15;
+            total -= (itemCountA / 3) * 20;
+            total -= (itemCountB / 2) * 15;
 
             return total;
         }
-
-        [Test]
-
-        public void SpecialPricing_ReturnsTotalPrice3()
-        {
-            ICheckout checkout = new Checkout();
-
-            checkout.Scan("A");
-            checkout.Scan("A");
-            checkout.Scan("A");
-            checkout.Scan("B");
-            checkout.Scan("B");
-            checkout.Scan("C");
-            checkout.Scan("D");
-
-            Assert.AreEqual(210, checkout.GetTotalPrice());
-        }
-
     }
 }
