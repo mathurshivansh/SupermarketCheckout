@@ -15,6 +15,7 @@ namespace SupermarketCheckout
                 case "A":
                     totalPrice = totalPrice + 50;
                     break;
+                
             }
         }
         public int GetTotalPrice()

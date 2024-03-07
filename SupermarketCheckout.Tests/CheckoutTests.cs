@@ -26,5 +26,20 @@ namespace SupermarketCheckout.Tests
             Assert.AreEqual(50, checkout.GetTotalPrice());
 
         }
+
+        [Test]
+        public void ScanMultipleSingleItems_ReturnsTotalPrice()
+        {
+            //Arrange
+            ICheckout checkout = new Checkout();
+
+            //Act
+            checkout.Scan("A");
+            checkout.Scan("B");
+            checkout.Scan("C");
+            checkout.Scan("D");
+            //Assert
+            Assert.AreEqual(115, checkout.GetTotalPrice());
+        }
     }
 }
