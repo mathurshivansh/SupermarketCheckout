@@ -43,5 +43,23 @@ namespace SupermarketCheckout
 
             return total;
         }
+
+        [Test]
+
+        public void SpecialPricing_ReturnsTotalPrice3()
+        {
+            ICheckout checkout = new Checkout();
+
+            checkout.Scan("A");
+            checkout.Scan("A");
+            checkout.Scan("A");
+            checkout.Scan("B");
+            checkout.Scan("B");
+            checkout.Scan("C");
+            checkout.Scan("D");
+
+            Assert.AreEqual(210, checkout.GetTotalPrice());
+        }
+
     }
 }
